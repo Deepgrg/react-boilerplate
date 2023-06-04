@@ -1,0 +1,6 @@
+*.svg
+build/
+coverage/
+dist/
+node_modules/
+*.css

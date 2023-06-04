@@ -1,0 +1,25 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Box } from '../index'
+
+<Meta
+  title={"core/Box"}
+  component={Box}
+/>
+
+export const Template = (args) => ({
+  component: { Box },
+  setup() {
+    return { args };
+  },
+})
+
+# Box
+
+#### Box component serves as a component for using <code>div</code> <code>span</code> <code>aside</code> <code>main</code> <code>header</code> <code>section</code> <code>footer</code>. Just pass these elements inside as prop which will render the element. It will accept all the props accepted by the element.
+
+## Example
+<Canvas>
+  <Story name="AS" args={{ as: "section", className: "h-3/4 w-3/4 bg-cool-gray-200" }}>
+    {(props) => <Box {...props}>This is a box component.</Box>}
+  </Story>
+</Canvas>

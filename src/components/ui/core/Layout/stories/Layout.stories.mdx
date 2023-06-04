@@ -1,0 +1,139 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import Layout from '../index'
+
+<Meta
+  title={"Core/Layout"}
+  component={Layout.Wrapper}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+  }}
+/>
+
+export const Template = () => ({
+  component: { ...Layout }
+})
+
+# Layout
+
+#### For proper structuring our React Component. We have added a new Layout System in our project. To eliminate the repetition and redundancy of structures in each page, we've introduced the concept of layout strategy. With the help of the Layout components we can properly change our overall project structure without changing the code in each page.
+
+### &nbsp;
+## Layout Components
+
+<ul>
+  <li><code>Wrapper Layout</code></li>
+  <li><code>Base Layout</code></li>
+  <li><code>Main Layout</code></li>
+  <li><code>Container Layout</code></li>
+  <li><code>Absolute Layout</code></li>
+  <li><code>Flex Layout</code></li>
+</ul>
+
+### &nbsp;
+## Wrapper Layout
+
+#### Wrapper Layout refers to the outermost structure of the app. It is the parent container for all the elements in the app. It encompasses all the structural elements of our app such as sidebar, header and the main elements. It spans the entire width and height of the viewport.
+
+#### Wrapper Layout accepts all the props of Box components. <code>BoxProps</code>
+
+<Canvas>
+  <Story name="Wrapper Layout">
+    <Layout.Wrapper>
+      The Text is inside the wrapper Layout.
+    </Layout.Wrapper>
+  </Story>
+</Canvas>
+
+
+### &nbsp;
+## Base Layout
+
+#### Base layout is the layout that wraps sidebar and other outlet components (i.e. Main Layout and Header Layout). It spans the height and width of the viewport.
+
+#### Base Layout accepts all the props of Box components. <code>BoxProps</code>
+
+<Canvas>
+  <Story name="Base Layout">
+    <Layout.Base>
+      The Text is inside the Base Layout.
+    </Layout.Base>
+  </Story>
+</Canvas>
+
+### &nbsp;
+## Main Layout
+
+#### Main Layout refers to the structure that contains the content of each page. All the sub content should be wrapped in this layout.
+#### Main Layout accepts all the props of Box components. <code>BoxProps</code>
+
+<Canvas>
+  <Story name="Main Layout">
+    <Layout.Main>
+      The Text is inside the Main Layout.
+    </Layout.Main>
+  </Story>
+</Canvas>
+
+### &nbsp;
+## Container Layout
+
+#### Container Layout centralizes the content of the main layout. It has two vital props: “centered” and “stretch”.
+
+<ul>
+  <li>
+    <code>centered</code> - the content will the max width of the application width and will be centered with mx-auto
+  </li>
+  <li>
+    <code>stretch</code> - the content will the span the full height and width of parent.
+  </li>
+</ul>
+
+#### Container Layout accepts all the props of Box components. <code>BoxProps</code>
+
+<Canvas>
+  <Story name="Container Layout">
+    <Layout.Container>
+      The Text is inside the Container Layout.
+    </Layout.Container>
+  </Story>
+</Canvas>
+
+### &nbsp;
+## Absolute Layout
+
+#### Absolute Layout was conceived to overcome the shortcomings of the flex layout. Using nested flex layout within a page can introduce redundancy and dependency in the structure of the code. This is why the absolute layout was introduced. This layout has scroll properties which can be passed as props <code>scrollable</code>.To achieve this, we need to always wrap absolute layout by a Box block-element with the classname <code>relative</code> and <code>h-full</code>. If the block element is wrapped by flex layout then instead of <code>h-full</code>, it should be <code>grow-1</code>.
+
+<ul>
+  <li>
+    <code>scrollable</code> - enable scrollbars or not
+  </li>
+</ul>
+
+#### Absolute Layout accepts all the props of Box components. <code>BoxProps</code>
+
+<Canvas>
+  <Story name="Absolute Layout">
+    <Layout.Absolute>
+      The Text is inside the Absolute Layout.
+    </Layout.Absolute>
+  </Story>
+</Canvas>
+
+### &nbsp;
+## Flex Layout
+
+#### Having two Box elements, and making the latter elements the remaining area of the viewport can be a real hassle. To eliminate the nesting of such redundant tasks, a new layout called flex layout. To achieve this, we need to include both children inside the flex layout and declare a class onto the latter div with <code>grow-1</code>.
+
+#### Flex Layout accepts all the props of FlexBox components. <code>FlexboxProps</code>
+
+<Canvas>
+  <Story name="Flex Layout">
+    <Layout.Flex>
+      The Text is inside the Flex Layout.
+    </Layout.Flex>
+  </Story>
+</Canvas>
+

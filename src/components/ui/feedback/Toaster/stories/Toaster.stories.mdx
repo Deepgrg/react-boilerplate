@@ -1,0 +1,234 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { ToastContainer } from 'react-toastify'
+import ToasterStory from './index'
+import 'react-toastify/dist/ReactToastify.css'
+
+<Meta
+  title="Feedback/Toaster"
+  component={ToasterStory}
+  argTypes={{
+    type: {
+      options: ['default', 'info', 'error', 'success', 'warning'],
+      control: 'radio',
+    },
+    Component: {
+      control: false,
+      type: null,
+    },
+    icon: {
+      control: false,
+    },
+    message: {
+      type: 'text',
+      defaultValue: 'Custom Toast',
+    },
+    showIcon: {
+      type: 'boolean',
+      defaultValue: true,
+    },
+    isUndo: {
+      type: 'boolean',
+      defaultValue: false,
+    },
+    showCloseButton: {
+      type: 'boolean',
+      defaultValue: true,
+    },
+  }}
+/>
+
+# Toaster
+
+## Overview
+
+Toaster are notifications that slide in and out, typically in the top right of the page. They are more disruptive than inline notifications and are best used with system-generated messages that do not correspond to a specific section of the UI. Toasts disappear automatically after a set amount of time but can also be dismissed by the user.
+
+Toasts are intended to be at-a-glance messages confined to a small region of the screen so their messages should not exceed three lines.
+
+## When to use?
+
+<ul>
+  <li>
+    Used to inform users of important events or actions that have occurred.
+  </li>
+  <li>To alert them about errors or problems that need to be addressed.</li>
+</ul>
+
+## Toaster Theme
+
+export const Template = (args) => <ToasterStory {...args} />
+
+<Canvas>
+  <Story
+    name="Toaster"
+    args={{
+      type: 'default',
+      Component: <ToastContainer />,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Info"
+    args={{
+      type: 'info',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Warning"
+    args={{
+      type: 'warning',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Success"
+    args={{
+      type: 'success',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Error"
+    args={{
+      type: 'error',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<table>
+  <thead>
+    <tr>
+      <td>Themes</td>
+      <td>Use Case</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>info</td>
+      <td>
+        Provide additional information to users that may not be tied to their
+        current action or task
+      </td>
+    </tr>
+    <tr>
+      <td>Warning</td>
+      <td>
+        Inform users that they are taking actions that are not desirable or
+        might have unexpected results
+      </td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>
+        Inform users that they are taking actions that are not desirable or
+        might have unexpected results
+      </td>
+    </tr>
+    <tr>
+      <td>Error</td>
+      <td>
+        Inform users of an error or critical failure and optionally block the
+        user from proceeding until the issue has been resolved
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Toaster Links
+
+<Canvas>
+  <Story
+    name="Toaster With Link"
+    args={{
+      name: 'Yes',
+      type: 'info',
+      isUndo: true,
+      message: 'Toaster with link',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Toaster Without Link"
+    args={{
+      name: 'No',
+      type: 'info',
+      message: 'Toaster without link',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<table>
+  <thead>
+    <tr>
+      <td>Links</td>
+      <td>Use Case</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes</td>
+      <td>
+        It shows the link where we can click on it and go through that page.
+      </td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>As the link is hidden we cannot go through it.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Toaster dismissable or not
+
+<Canvas>
+  <Story
+    name="Dismissable Toast"
+    args={{
+      name: 'Yes',
+      type: 'info',
+      message: 'Dismissable Toast',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Non dismissable toast"
+    args={{
+      name: 'No',
+      type: 'info',
+      showCloseButton: false,
+      message: 'Non Dismissable Toast',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<table>
+  <thead>
+    <tr>
+      <td>Links</td>
+      <td>Use Case</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Yes</td>
+      <td>This toaster is dismissible.</td>
+    </tr>
+    <tr>
+      <td>No</td>
+      <td>This is non-dismissible.</td>
+    </tr>
+  </tbody>
+</table>

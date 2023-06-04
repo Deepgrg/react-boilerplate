@@ -1,0 +1,103 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Code } from '../../../../lib/storybook'
+import { Text } from './index'
+
+<Meta
+  title={'Data Display/Text'}
+  component={Text}
+  argTypes={{
+    color: {
+      type: "string",
+      control: { type: 'input' },
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  component: { Text }
+})
+
+# Text
+
+#### The Typography component makes it easy to use a default set of text styles in your application.
+
+<Canvas>
+  <Story name="Default">
+    <Text>P. Default Text</Text>
+    <Text variant={"h1"}>h1. Text</Text>
+    <Text variant={"h2"}>h2. Text</Text>
+    <Text variant={"h3"}>h3. Text</Text>
+    <Text variant={"h4"}>h4. Text</Text>
+    <Text variant={"h5"}>h5. Text</Text>
+    <Text variant={"h6"}>h6. Text</Text>
+    <Text variant={"paragraph"}>paragraph. Text</Text>
+    <Text variant={"overline"} className={"block"}>overline. Text</Text>
+    <Text variant={"label"} className={"block"}>label. Text</Text>
+    <Text variant={"small"} className={"block"}>small. Text</Text>
+    <Text variant={"subtitle1"}>subtitle1. Text</Text>
+    <Text variant={"subtitle2"}>subtitle2. Text</Text>
+    <Text variant={"subtitle3"}>subtitle3. Text</Text>
+  </Story>
+</Canvas>
+
+## Variants
+
+#### Text component uses variant mapping, to map guideline styles to the variant. If variant is not passed defaults to paragraph. Available variants are,
+
+### <code>h1</code> <code>h2</code> <code>h3</code> <code>h4</code> <code>h5</code> <code>h6</code> <code>paragraph</code> <code>label</code> <code>small</code> <code>overline</code> <code>subtitle1</code> <code>subtitle2</code> <code>subtitle3</code>
+
+<Code>
+  {`<Text variant={'h1'}>This is h1 Variant</Text>`}
+</Code>
+
+<Canvas>
+  <Story name="Variants">
+    <Text variant={'h1'} className={'my-5'}>This is h1 Variant</Text>
+  </Story>
+</Canvas>
+
+## AS
+
+#### Text component default variant element mapping can be changed by passing element to the <code>as</code> prop. If not massed default mapping is used. Lets say you have h1 tag already in the page, but want h1 styles without another h1 element, just pass the tag you want to render to the <code>as</code> prop.
+
+### <code>h1</code> <code>h2</code> <code>h3</code> <code>h4</code> <code>h5</code> <code>h6</code> <code>p</code> <code>label</code> <code>small</code> <code>overline</code> <code>span</code>
+
+<Code>
+  {`<Text variant={'h1'} as={'h2'}>This is h1 Variant, rendered as h2 element</Text>`}
+</Code>
+
+<Canvas>
+  <Story name="AS">
+    <Text variant={'h1'} className={'my-5'}>This is h1 Variant, rendered as h2 element</Text>
+  </Story>
+</Canvas>
+
+## Align
+
+#### Text Align Prop defines the <code>text-align</code> css property.
+### <code>center</code> <code>inherit</code> <code>justify</code> <code>left</code> <code>right</code> <code>start</code> <code>end</code>
+
+<Canvas>
+  <Story name="Align">
+    <Text variant={'paragraph'} align={"right"} className={'my-5'}>This is paragraph Variant, aligned to right</Text>
+  </Story>
+</Canvas>
+
+## Typeface
+
+#### Typeface prop defines the prebuilt font weight of the text.
+### <code>thin</code> <code>extralight</code> <code>light</code> <code>normal</code> <code>medium</code> <code>semibold</code> <code>bold</code> <code>extrabold</code> <code>black</code>
+
+<Canvas>
+  <Story name="Typeface">
+    <Text typeface={"extrabold"}>This is default Variant, extrabold type face</Text>
+  </Story>
+</Canvas>
+
+## Other Props
+
+<ul className={"list-none"}>
+  <li><code>noWrap</code> - for text wrap</li>
+  <li><code>color</code> - for text color</li>
+  <li><code>className</code> - for addition classNames</li>
+</ul>

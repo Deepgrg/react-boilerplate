@@ -1,0 +1,163 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+import { Grid } from '../index'
+import { Code } from '../../../../../lib/storybook'
+
+<Meta
+  title="Core/Grid"
+  components={Grid}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true }
+    },
+  }}
+/>
+
+export const Template = (args) => ({
+  component: { Grid },
+  args: { args }
+})
+
+# Grid
+
+#### The responsive grid adapts to screen and size, ensuring consistency across defining layouts.
+
+<ul>
+  <li>These are based of CSS Grids</li>
+  <li>
+    There are two components, <code> Grid</code> and <code>Grid.Col</code>. <code> Grid</code> is a grid container
+    and <code>Grid.Col</code> is the grid columns
+  </li>
+
+  <li>
+    <b>Since the classNames are purged, if we provide just references for props rather than actual classNames,
+      unnecessary classNames are added and the mapping just causes the bundle to be large. So everything you provide is
+      actual classNames as prop rather than mapping or references.</b>
+  </li>
+  <li>Every single prop is typesafe, even if you provide the className.</li>
+</ul>
+
+<Canvas>
+  <Story name="Grid">
+    <Grid xs={"xs:grid-cols-2"}>
+      <Grid.Col>Grid Col 1</Grid.Col>
+      <Grid.Col>Grid Col 2</Grid.Col>
+    </Grid>
+  </Story>
+</Canvas>
+
+### &nbsp;
+## Cols
+
+#### Cols are for defining the columns of the grid.
+
+### &nbsp;
+### Fixed Cols across all screen sizes.
+
+#### We can define fixed col sizes by passing grid cols className to the <code>cols</code> props.
+
+<Code>
+  {`<Grid xs='xs:grid-cols-2'>
+      <Grid.Col>Grid Col 1</Grid.Col>
+      <Grid.Col>Grid Col 2</Grid.Col>
+    </Grid>`}
+</Code>
+
+### &nbsp;
+### Cols based on screen sizes.
+
+#### We can define columns according to <code>breakpoints</code> inside <code>cols</code> props.
+
+<Code>
+  {`<Grid sm='sm:grid-cols-1' lg='lg:grid-cols-4'>
+      <Grid.Col>Grid Col 1</Grid.Col>
+      <Grid.Col>Grid Col 2</Grid.Col>
+    </Grid>`}
+</Code>
+
+### &nbsp;
+## Other Props
+
+#### Every single grid property can be controlled through the provided props.
+
+<ul>
+  <li><code><h4>gap</h4></code> - controlling gutters (spacing) between columns</li>
+  <li><code><h4>flow</h4></code> - controlling how elements in a grid are auto-placed</li>
+  <li><code><h4>rows</h4></code> - controlling how elements are sized and placed across grid rows</li>
+  <li><code><h4>columnAuto</h4></code> - controlling the size of implicitly-created grid columns</li>
+  <li><code><h4>rowAuto</h4></code> - controlling the size of implicitly-created grid rows</li>
+  <li>
+    <code><h4>justify</h4></code> - controlling how flex and grid items are positioned along a container's main axis.
+  </li>
+  <li><code><h4>justifyItems</h4></code> - controlling how grid items are aligned along their inline axis</li>
+  <li>
+    <code><h4>alignItems</h4></code> - controlling how flex and grid items are positioned along a container's cross
+    axis.
+  </li>
+  <li><code><h4>placeContent</h4></code> - controlling how content is justified and aligned at the same time.</li>
+  <li><code><h4>placeItems</h4></code> - controlling how items are justified and aligned at the same time.</li>
+</ul>
+
+
+
+# Grid Cols
+
+#### Grid cols define the column span of the grid.
+
+<Canvas>
+  <Story name="Grid Col">
+    <Grid xs="xs:grid-cols-3">
+      <Grid.Col xs="xs:col-span-1">Col span 1</Grid.Col>
+      <Grid.Col xs="xs:col-span-2">Col span 2</Grid.Col>
+    </Grid>
+  </Story>
+</Canvas>
+
+
+### &nbsp;
+## Col Span
+
+#### Cols spans are for defining the columns of the grid.
+
+### &nbsp;
+### Fixed Cols spans across all screen sizes.
+
+#### We can define fixed col sizes by passing col span className to the <code>cols</code> props.
+
+<Code>
+  {`<Grid xs='xs:grid-cols-3'>
+      <Grid.Col xs='xs:col-span-1'>Col span 1</Grid.Col>
+      <Grid.Col xs='xs:col-span-2'>Col span 2</Grid.Col>
+    </Grid>`}
+</Code>
+
+### &nbsp;
+### Cols based on screen sizes.
+
+#### We can define columns according to <code>breakpoints</code> inside <code>cols</code> props.
+
+<Code>
+  {`<Grid sm='sm:grid-cols-1' lg='lg:grid-cols-4'>
+      <Grid.Col sm='sm:col-span-2' lg='lg:col-span-1'>Col span 1</Grid.Col>
+      <Grid.Col sm='sm:col-span-2' lg='lg:grid-cols-1'>Col span 2</Grid.Col>
+    </Grid>`}
+</Code>
+
+### &nbsp;
+## Other Props
+
+#### Every single grid columns property can be controlled through the provided props.
+
+<ul>
+  <li><code><h4>justifySelf</h4></code> - controlling how an individual grid item is aligned along its inline axis.</li>
+  <li><code><h4>alignContent</h4></code> - controlling how rows are positioned in multi-row flex and grid containers.
+  </li>
+  <li><code><h4>alignSelf</h4></code> - controlling how an individual flex or grid item is positioned along its
+    container's cross axis.
+  </li>
+  <li><code><h4>placeSelf</h4></code> - controlling how an individual item is justified and aligned at the same time.
+  </li>
+  <li><code><h4>order</h4></code> - controlling the order of flex and grid items.</li>
+</ul>
+
+
